@@ -1,0 +1,20 @@
+version: "2.3"
+
+services:
+  master:
+    build: .
+    runtime: nvidia
+    image: dldocker:construction
+    container_name: dldocker
+    ports:
+      - "22"
+      - "4223"
+      - "4224"
+    tty: true
+    cpus: 0.2
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    mem_limit: 1000m
+    restart: unless-stopped
+    volumes:
+      - /shared/dldocker/persistent_1:/root/persistent
