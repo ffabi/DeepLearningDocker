@@ -17,4 +17,4 @@ services:
     mem_limit: 1000m
     restart: unless-stopped
     volumes:
-      - /shared/dldocker/persistent_1:/root/persistent
+      - /shared/dldocker/persistent:/root/persistent
