@@ -7,14 +7,16 @@ services:
     image: dldocker:construction
     container_name: dldocker
     ports:
-      - "22"
-      - "4223"
-      - "4224"
+      - "4096:22"
+      - "4097:4097"
+      - "4098:4098"
     tty: true
-    cpus: 0.2
+    cpus: 0.99
     environment:
       - CUDA_VISIBLE_DEVICES=0
-    mem_limit: 16000m
+    mem_limit: "128GB"
+    shm_size: "1GB"
     restart: unless-stopped
     volumes:
       - /shared/dldocker/persistent:/root/persistent
+      - /shared/ffabi_shared_folder:/root/ffabi_shared_folder/

@@ -1,7 +1,8 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 MAINTAINER ffabi
 
-RUN echo "Don't cache apt update 2020.03.14"
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+
 RUN apt -q update --fix-missing
 
 RUN apt -q install -y apt-utils tmux ssh sudo nano vim git 
@@ -18,7 +19,6 @@ ENV PATH="/root/miniconda3/bin:${PATH}"
 COPY copy_files/environments /root/copy_files/environments
 RUN for env in /root/copy_files/environments/*.yml; do conda env create -f $env; done
 RUN conda init bash
-RUN conda env export -n tensorflow_2 > /root/copy_files/environments/backup_tensorflow_2.yml
 
 COPY copy_files/ /root/copy_files/
 RUN mv /root/copy_files/.tmux-session /root/.tmux-session

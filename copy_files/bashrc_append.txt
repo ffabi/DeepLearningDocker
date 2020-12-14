@@ -10,7 +10,7 @@ alias nani=nano
 alias "cd."="cd .."
 alias cls=clear
 
-conda activate tensorflow_2
+conda activate pytorch_latest
 
 if [ -z "$TMUX" ]; then
     tmux attach -t 0_default || tmux new -s 0_default

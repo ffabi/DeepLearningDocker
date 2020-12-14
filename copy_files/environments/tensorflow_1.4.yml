@@ -1,0 +1,30 @@
+name: tensorflow_2
+channels:
+  - plotly
+  - defaults
+  - rapidsai 
+  - nvidia
+  - conda-forge
+  - open3d-admin
+dependencies:
+  - python>=3.7
+  - numpy
+  - pandas
+  - tqdm
+  - pip
+  - beautifulsoup4
+  - opencv
+  - plotly
+  - scikit-learn
+  - tensorboard
+  - jupyterlab
+  - requests
+  - open3d
+  - imbalanced-learn
+  - rapids
+  - nltk
+  - seaborn
+  - pip:
+    - matplotlib
+    - tensorflow-gpu=1.4
+    - tensorflow-addons
